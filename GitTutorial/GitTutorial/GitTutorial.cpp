@@ -6,6 +6,7 @@ using namespace System;
 
 bool Guess(int number) {
 	static int target = -1;
+
 	if (target == -1) {
 		Random r;
 		target = r.Next() % 100 + 1;
@@ -15,11 +16,13 @@ bool Guess(int number) {
 		target = -1;
 		return true;
 	}
-	else std::cout << "Wrong" << std::endl;
+	else if (number > target) std::cout << "Smaller" << std::endl;
+	else if (number < target) std::cout << "Bigger" << std::endl;
 	return false;
 
 	return false;
 }
+
 int main(array<System::String^>^ args)
 {
 	int guess;
